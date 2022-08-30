@@ -11,9 +11,10 @@ string wordlist[400000];
 int numWords;
 set<string> words;
 
-void loadWords() {
+void loadWords(int n) {
     ifstream file;
-    file.open("wordlist.txt");
+    string path = "wordlist" + to_string(n) + + ".txt" ;
+    file.open(path);
     int i = 0;
 
     while (!file.eof()) {
@@ -142,7 +143,7 @@ int main() {
     cout << "Enter your puzzle below (up to 7x7):\n";
     cout << "-----------------------------------------------\n";
 
-    loadWords();
+    loadWords(1);
     Board board;
 
     if (!board.takeInput()) {
